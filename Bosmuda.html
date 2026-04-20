@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kandang Bos Muda - Hewan Qurban</title>
+
+<style>
+
+body  { 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1596733430284-f7437764b1a9');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    background: #6b3f2d;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.hero h2 {
+    font-size: 40px;
+}
+
+.btn {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 15px 25px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECTION */
+.section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* BOX */
+.box {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* CARD */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: #6b3f2d;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 300px;
+}
+
+
+/* QUOTE */
+.quote {
+    background: #3b1f12;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* CTA */
+.cta {
+    background: #6b3f2d;
+    color: white;
+    padding: 50px 20px;
+}
+
+/* FAQ */
+.faq {
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+}
+
+/* WA FLOAT */
+.wa-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>KANDANG BOS MUDA</h1>
+    <h2>Hewan Qurban Amanah & Sesuai Syariat</h2>
+    <p>Sapi & Domba Berkualitas + Free Ongkir & Dokumentasi</p>
+    <a href="https://wa.me/6282246659688" class="btn">Pesan Sekarang</a>
+</div>
+<!-- VIDEO HERO -->
+<div class="video-wrapper">
+    <iframe 
+        src="https://streamable.com/e/odgzvf?autoplay=1&muted=1" 
+        frameborder="0" 
+        width="100%" 
+        height="300"
+        allow="autoplay; fullscreen">
+    </iframe>
+</div>
+
+
+<!-- PROBLEM -->
+<div class="section problem-section">
+    <h2>Masih Bingung Cari Hewan Qurban?</h2>
+    <p class="problem-sub">Banyak orang mengalami hal ini setiap tahun...</p>
+
+    <div class="problem-container">
+
+        <div class="problem-card">
+            <span class="icon">😟</span>
+            <p>Takut hewan tidak sehat atau tidak layak qurban</p>
+        </div>
+
+        <div class="problem-card">
+            <span class="icon">🤔</span>
+            <p>Bingung memilih yang sesuai syariat</p>
+        </div>
+
+        <div class="problem-card">
+            <span class="icon">⏰</span>
+            <p>Tidak punya waktu untuk merawat sendiri</p>
+        </div>
+
+    </div>
+
+    <div class="solution-box">
+        <h3>Tenang... Kami yang urus semuanya 🙌</h3>
+    </div>
+</div>
+
+<style>
+.problem-section {
+    background: linear-gradient(135deg, #fff, #f0f0f0);
+}
+
+.problem-sub {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* CONTAINER */
+.problem-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* CARD */
+.problem-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.4s;
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+/* ICON */
+.problem-card .icon {
+    font-size: 30px;
+}
+
+/* SHOW ANIMATION */
+.problem-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* HOVER */
+.problem-card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+/* SOLUTION BOX */
+.solution-box {
+    margin-top: 40px;
+    background: #6b3f2d;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    animation: fadeInUp 1s ease;
+}
+
+/* KEYFRAME */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+const problemCards = document.querySelectorAll('.problem-card');
+
+window.addEventListener('scroll', () => {
+    problemCards.forEach((card, index) => {
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            setTimeout(() => {
+                card.classList.add('show');
+            }, index * 200); // delay biar muncul satu-satu
+        }
+    });
+});
+</script>
+
+
+<!-- WHY US -->
+<div class="section why-section">
+    <h2>Kenapa Pilih Kami?</h2>
+    <p class="why-sub">Kami berkomitmen memberikan layanan terbaik untuk qurban Anda</p>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <div class="why-icon">✔️</div>
+            <h3>Sesuai Syariat</h3>
+            <p>Proses pemilihan hingga penyembelihan sesuai syariat Islam</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🐄</div>
+            <h3>Sehat & Terawat</h3>
+            <p>Hewan dipastikan sehat, cukup umur, dan layak qurban</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🚚</div>
+            <h3>Free Ongkir</h3>
+            <p>Kami antar langsung ke lokasi Anda tanpa biaya tambahan</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">📸</div>
+            <h3>Dokumentasi Lengkap</h3>
+            <p>Foto & video proses qurban sebagai bukti transparansi</p>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.why-section {
+    background: #ffffff;
+}
+
+.why-sub {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* CONTAINER */
+.why-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* CARD */
+.why-card {
+    background: #6b3f2d;
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 260px;
+    text-align: center;
+    transition: 0.4s;
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+/* MUNCUL */
+.why-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* HOVER */
+.why-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: #5a3324;
+}
+
+.why-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+</style>
+
+<script>
+const whyCards = document.querySelectorAll('.why-card');
+
+window.addEventListener('scroll', () => {
+    whyCards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            card.classList.add('show');
+        }
+    });
+});
+</script>
+
+
+<!-- PRODUK -->
+<div class="section">
+    <h2>Pilihan Hewan Qurban</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>SAPI</h3>
+            <p>Hemat - Rp 18 jt</p>
+            <p>Standar - Rp 23 jt</p>
+            <p>Premium - Rp 25 jt</p>
+            <p>Super - Rp 28 jt</p>
+            <p>Promax++ - Rp 30 jt</p>
+            <p>Ultimate - Rp 35 jt</p>
+        </div>
+
+        <div class="card">
+            <h3>DOMBA / KAMBING</h3>
+            <p>Hemat - Rp 2,5 jt</p>
+            <p>Standar - Rp 3,2 jt</p>
+            <p>Premium - Rp 3,9 jt</p>
+            <p>Super - Rp 4,6 jt</p>
+            <p>Promax++ - Rp 5,2 jt</p>
+            <p>Ultimate - Rp 6 jt</p>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/6282246659688" class="btn">Pesan Sekarang</a>
+</div>
+<!-- TRUST -->
+<div class="section trust-section">
+    <h2>Sudah Dipercaya Banyak Pelanggan</h2>
+    <p class="trust-sub">Kami telah menyalurkan hewan qurban berkualitas setiap tahun</p>
+
+    <div class="trust-container">
+
+        <div class="trust-card">
+            <h3 class="counter" data-target="500">0</h3>
+            <p>Pelanggan Puas</p>
+        </div>
+
+        <div class="trust-card">
+            <h3 class="counter" data-target="1000">0</h3>
+            <p>Hewan Tersalurkan</p>
+        </div>
+
+        <div class="trust-card">
+            <h3 class="counter" data-target="5">0</h3>
+            <p>Tahun Pengalaman</p>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.trust-section {
+    background: #fff;
+}
+
+.trust-sub {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.trust-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.trust-card {
+    background: #6b3f2d;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 200px;
+    text-align: center;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.trust-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.trust-card:hover {
+    transform: scale(1.05);
+}
+
+.counter {
+    font-size: 40px;
+    font-weight: bold;
+}
+</style>
+
+<script>
+const trustCards = document.querySelectorAll('.trust-card');
+const counters = document.querySelectorAll('.counter');
+
+/* ANIMASI MUNCUL */
+window.addEventListener('scroll', () => {
+    trustCards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            card.classList.add('show');
+        }
+    });
+
+    /* COUNTER */
+    counters.forEach(counter => {
+        if(counter.innerText == "0"){
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+
+            const update = () => {
+                const increment = target / 50;
+                count += increment;
+
+                if(count < target){
+                    counter.innerText = Math.floor(count);
+                    setTimeout(update, 20);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+
+            update();
+        }
+    });
+});
+</script>
+
+
+<!-- QUOTE -->
+<div class="section">
+    <div class="quote">
+        <p><i>"Yang sampai kepada Allah bukan daging dan darahnya, tapi ketakwaan dari hati kita."</i></p>
+        <p><b>QS Al-Hajj: 37</b></p>
+    </div>
+</div>
+
+<!-- BONUS -->
+<div class="section bonus-section">
+    <h2>🎁 Bonus Spesial Untuk Anda</h2>
+    <p class="bonus-sub">Beli sekarang, dapatkan keuntungan eksklusif!</p>
+
+    <div class="bonus-container">
+
+        <div class="bonus-card">
+            <div class="icon">🚚</div>
+            <h3>Free Ongkir</h3>
+            <p>Kami kirim langsung ke lokasi Anda tanpa biaya tambahan</p>
+        </div>
+
+        <div class="bonus-card">
+            <div class="icon">🐄</div>
+            <h3>Free Pemeliharaan</h3>
+            <p>Hewan dirawat sampai hari H tanpa biaya</p>
+        </div>
+
+        <div class="bonus-card">
+            <div class="icon">📸</div>
+            <h3>Free Dokumentasi</h3>
+            <p>Dapatkan foto & video proses qurban Anda</p>
+        </div>
+
+    </div>
+
+    <p class="warning">⚠️ Stok terbatas menjelang Idul Adha</p>
+</div>
+
+<style>
+.bonus-section {
+    background: linear-gradient(135deg, #6b3f2d, #3b1f12);
+    color: white;
+}
+
+.bonus-sub {
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.bonus-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bonus-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    width: 260px;
+    transition: 0.4s;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+/* ANIMASI MUNCUL */
+.bonus-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* HOVER EFFECT */
+.bonus-card:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.2);
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* WARNING */
+.warning {
+    margin-top: 30px;
+    font-weight: bold;
+    color: #ffd700;
+    animation: blink 1s infinite;
+}
+
+/* BLINK */
+@keyframes blink {
+    0%,100% {opacity: 1;}
+    50% {opacity: 0.3;}
+}
+</style>
+
+<script>
+const bonusCards = document.querySelectorAll('.bonus-card');
+
+window.addEventListener('scroll', () => {
+    bonusCards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            card.classList.add('show');
+        }
+    });
+});
+</script>
+
+<!-- FAQ -->
+<div class="section">
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+        <button class="faq-question">Bisa pilih hewan langsung?</button>
+        <div class="faq-answer">
+            Ya, kami akan kirim foto & video hewan sebelum dipilih.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">Bisa kirim ke masjid?</button>
+        <div class="faq-answer">
+            Bisa, kami menyediakan layanan free ongkir.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">Apakah ada dokumentasi?</button>
+        <div class="faq-answer">
+            Ada, kami kirim foto & video penyembelihan.
+        </div>
+    </div>
+</div>
+
+<style>
+.faq-item {
+    max-width: 600px;
+    margin: 10px auto;
+    text-align: left;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 15px;
+    background: #6b3f2d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background: #5a3324;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: #eee;
+    padding: 0 15px;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+.faq-answer.open {
+    padding: 15px;
+    max-height: 200px;
+}
+</style>
+
+<script>
+const questions = document.querySelectorAll(".faq-question");
+
+questions.forEach(q => {
+    q.addEventListener("click", () => {
+        const answer = q.nextElementSibling;
+
+        answer.classList.toggle("open");
+    });
+});
+</script>
+
+
+<!-- CTA -->
+<div class="cta">
+    <h2>Jangan Tunggu Sampai Kehabisan</h2>
+    <p>Pastikan qurban terbaik untuk keluarga Anda</p>
+    <a href="https://wa.me/6282246659688" class="btn">Pesan Sekarang</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- BRAND -->
+        <div class="footer-col">
+            <h2>Kandang Bos Muda</h2>
+            <p>Menyediakan hewan qurban amanah, sehat, dan sesuai syariat.</p>
+        </div>
+
+        <!-- KONTAK -->
+        <div class="footer-col">
+            <h3>Kontak</h3>
+            <p>📞 0822 4665 9688</p>
+            <p>📍 Indonesia</p>
+        </div>
+
+        <!-- SOSIAL -->
+        <div class="footer-col">
+            <h3>Follow Kami</h3>
+            <p>📷 Instagram: @Kandang.BosMuda</p>
+            <p>💬 WhatsApp: 0822 4665 9688</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Kandang Bos Muda. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<style>
+.footer {
+    background: #ffffff;
+    color: #333;
+    padding: 50px 20px 20px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+    border-top: 1px solid #eee;
+}
+
+.footer.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h2 {
+    color: #6b3f2d;
+}
+
+.footer-col h3 {
+    color: #444;
+}
+
+.footer-col p {
+    margin: 8px 0;
+    color: #666;
+    transition: 0.3s;
+}
+
+/* HOVER TEXT */
+.footer-col p:hover {
+    color: #6b3f2d;
+    transform: translateX(5px);
+}
+
+/* BOTTOM */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #999;
+}
+</style>
+
+<script>
+const footer = document.querySelector('.footer');
+
+window.addEventListener('scroll', () => {
+    const top = footer.getBoundingClientRect().top;
+    if(top < window.innerHeight){
+        footer.classList.add('show');
+    }
+});
+</script>
+
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/6282246659688?text=Halo%20kak%2C%20saya%20mau%20pesan%20hewan%20qurban"
+   class="wa-container"
+   target="_blank">
+
+    <div class="wa-text">Chat Kami</div>
+    <div class="wa-icon">💬</div>
+
+</a>
+
+<style>
+.wa-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    z-index: 9999;
+}
+
+/* TEXT */
+.wa-text {
+    background: #25D366;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+
+    /* ANIMASI MASUK KELUAR */
+    animation: slideText 3s infinite;
+}
+
+/* ICON */
+.wa-icon {
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+
+    /* ANIMASI GERAK */
+    animation: bounce 1.5s infinite;
+}
+
+/* SLIDE TEXT */
+@keyframes slideText {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+/* ICON BOUNCE */
+@keyframes bounce {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-8px);}
+}
+
+/* HOVER */
+.wa-container:hover .wa-icon {
+    transform: scale(1.1);
+}
+</style>
+
+<!-- WA POPUP -->
+<div class="wa-popup" id="waPopup">
+    
+    <div class="wa-header">
+        <strong>Admin Kandang Bos Muda</strong>
+        <span class="close-btn" onclick="closePopup()">✖</span>
+    </div>
+
+    <div class="wa-body">
+        <p>👋 Halo kak!</p>
+        <p>Mau tanya atau pesan hewan qurban?</p>
+        <p>Kami siap bantu 😊</p>
+    </div>
+
+    <a href="https://wa.me/6282246659688?text=Halo%20kak%2C%20saya%20tertarik%20hewan%20qurban"
+       class="wa-chat-btn"
+       target="_blank">
+       Chat Sekarang
+    </a>
+
+</div>
+
+<style>
+/* POPUP */
+.wa-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 260px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    overflow: hidden;
+    font-size: 14px;
+    z-index: 9999;
+
+    /* AWAL HIDDEN */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+.wa-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HEADER */
+.wa-header {
+    background: #25D366;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    cursor: pointer;
+}
+
+/* BODY */
+.wa-body {
+    padding: 10px;
+    color: #333;
+}
+
+.wa-body p {
+    margin: 5px 0;
+}
+
+/* BUTTON */
+.wa-chat-btn {
+    display: block;
+    background: #25D366;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ANIMASI KEDIP */
+.wa-popup::after {
+    content: "1";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%,100% {opacity: 1;}
+    50% {opacity: 0.3;}
+}
+</style>
+
+<script>
+// MUNCUL SETELAH 3 DETIK
+setTimeout(() => {
+    document.getElementById("waPopup").classList.add("show");
+}, 3000);
+
+// CLOSE POPUP
+function closePopup(){
+    document.getElementById("waPopup").style.display = "none";
+}
+</script>
+</body>
+</html>
